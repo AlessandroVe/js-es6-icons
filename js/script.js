@@ -110,7 +110,7 @@ icons.forEach((icon)=>{
     containerHTML.innerHTML+= `
     <div class="icon-card col-6 col-sm-4 col-xl-3">
 		<div class="icon-card-inner">
-			<div class="${type}">
+			<div class="icon ${type}">
         		<i class="${family} ${prefix}${name}"></i>
 			</div>
 			<span class="name">${name}</span>
