@@ -105,9 +105,19 @@ Coloriamo le icone per tipo */
 /* Milestone 3
 Creiamo una select con i tipi di icone e usiamola per filtrare le icone (modificato)  */
 
-const containerHTML = document.querySelector(".icons-content");
 
-icons.forEach((icon)=>{
+//si attiva qundo l'utente cambia la select , addEventListener change
+//abbiamo bisogno di un array che cambia di volta in volta a seconda della selezione dell'utente 
+//di default quest array e' uguale all'originale
+
+const containerHTML = document.querySelector(".icons-content");
+ 
+////abbiamo bisogno di un array speculare all'originale
+const iconsFiltered = icons.map((element) => { 
+	return element;
+});
+
+iconsFiltered.forEach((icon)=>{
 
     const { name,prefix,family,type }=icon;
 
@@ -123,6 +133,31 @@ icons.forEach((icon)=>{
     `
 });
 
+//l'obbiettivo e' creare una funzione che filtra l'array originale 
+//e a seconda della scelta ritorna un nuovo array
+/**
+ * filtra originalList a seconda della choise
+ * @param {*} choise ["all", "user", "vegetable","animal" ]
+ * @param {*} originalList 
+ */
+function filterIcons(choise, originalList){
+
+	const newArray = originalList.filter((element)=>{
+		//ritorniamo true solo se corrisponde al filtro
+		if(choise === "all"){
+			return true
+		}
+		
+		if(choise === icon.type){
+			return true
+		}
+		// se non e' riuscito ad attivare gli altri return allora ritornera' falso
+		return false
+
+
+	});
+
+}
 
 
 
