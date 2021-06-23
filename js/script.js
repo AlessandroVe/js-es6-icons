@@ -110,7 +110,6 @@ Creiamo una select con i tipi di icone e usiamola per filtrare le icone (modific
 //abbiamo bisogno di un array che cambia di volta in volta a seconda della selezione dell'utente 
 //di default quest array e' uguale all'originale
 
-const containerHTML = document.querySelector(".icons-content");
 
 
 //l'obbiettivo e' creare una funzione che filtra l'array originale 
@@ -122,7 +121,7 @@ const containerHTML = document.querySelector(".icons-content");
  */
 function filterIcons(choise, originalList){
 
-	return  originalList.filter((element)=>{
+	return  originalList.filter((icon)=>{
 		//ritorniamo true solo se corrisponde al filtro
 		if(choise === "all"){
 			return true
@@ -136,12 +135,18 @@ function filterIcons(choise, originalList){
 
 
 	});
-	return
+	
 }
 
-function listIconsToHTML() {
+function listIconsToHTML(filter) {
 	
-	const iconsFiltered = filterIcons("all", icons)
+	const iconsFiltered = filterIcons(filter, icons)
+
+	const containerHTML = document.querySelector(".icons-content");
+
+	
+	containerHTML.innerHTML="";
+
 
 	iconsFiltered.forEach((icon)=>{
 
@@ -161,7 +166,17 @@ function listIconsToHTML() {
 		
 }
 
+listIconsToHTML("all");
 
+const selectElement = document.querySelector(".type-select");
+
+selectElement.addEventListener('change', (event)=>{
+ // event è la descrizione dell'evento e contiene
+// in event.target.value il valore della select selezionata.
+    
+    listIconsToHTML(event.target.value);  // ex. value="animal"
+
+});
 
 
 
