@@ -178,35 +178,4 @@ selectElement.addEventListener('change', (event)=>{
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
