@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 const icons = [
 	{
 		name: 'cat',
@@ -99,15 +100,58 @@ const icons = [
 /* Milestone 1
 Partendo dalla seguente struttura dati , 
 mostriamo in pagina tutte le icone disponibili come da layout. */
-const containerHTML = document.querySelector(".icons-container");
+
+const containerHTML = document.querySelector(".icons-content");
 
 icons.forEach((icon)=>{
 
     const { name,prefix,family }=icon;
 
     containerHTML.innerHTML+= `
-    <div class="icon-card">
-        <i class="${family} ${prefix}${name}"></i>
+    <div class="icon-card col-6 col-sm-4 col-xl-3">
+		<div class="icon-card-inner">
+        	<i class="${family} ${prefix}${name}"></i>
+			<br/>
+			<span class="name">${name}</span>
+		</div>
     </div>
     `
 });
+
+
+/* Milestone 2
+Coloriamo le icone per tipo */
+
+
+
+
+/* Milestone 3
+Creiamo una select con i tipi di icone e usiamola per filtrare le icone (modificato)  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
