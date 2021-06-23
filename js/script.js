@@ -111,27 +111,7 @@ Creiamo una select con i tipi di icone e usiamola per filtrare le icone (modific
 //di default quest array e' uguale all'originale
 
 const containerHTML = document.querySelector(".icons-content");
- 
-////abbiamo bisogno di un array speculare all'originale
-const iconsFiltered = icons.map((element) => { 
-	return element;
-});
 
-iconsFiltered.forEach((icon)=>{
-
-    const { name,prefix,family,type }=icon;
-
-    containerHTML.innerHTML+= `
-    <div class="icon-card col-6 col-sm-4 col-xl-3">
-		<div class="icon-card-inner">
-			<div class="icon ${type}">
-        		<i class="${family} ${prefix}${name}"></i>
-			</div>
-			<span class="name">${name}</span>
-		</div>
-    </div>
-    `
-});
 
 //l'obbiettivo e' creare una funzione che filtra l'array originale 
 //e a seconda della scelta ritorna un nuovo array
@@ -142,7 +122,7 @@ iconsFiltered.forEach((icon)=>{
  */
 function filterIcons(choise, originalList){
 
-	const newArray = originalList.filter((element)=>{
+	return  originalList.filter((element)=>{
 		//ritorniamo true solo se corrisponde al filtro
 		if(choise === "all"){
 			return true
@@ -156,8 +136,32 @@ function filterIcons(choise, originalList){
 
 
 	});
-
+	return
 }
+
+function listIconsToHTML() {
+	
+	const iconsFiltered = filterIcons("all", icons)
+
+	iconsFiltered.forEach((icon)=>{
+
+		const { name,prefix,family,type }=icon;
+
+		containerHTML.innerHTML+= `
+		<div class="icon-card col-6 col-sm-4 col-xl-3">
+			<div class="icon-card-inner">
+				<div class="icon ${type}">
+					<i class="${family} ${prefix}${name}"></i>
+				</div>
+				<span class="name">${name}</span>
+			</div>
+		</div>
+		`
+	});
+		
+}
+
+
 
 
 
